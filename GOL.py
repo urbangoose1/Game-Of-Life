@@ -11,8 +11,8 @@ import os
 #   All other live cells die in the next generation. (if too much they also die)
 
 def createGrid():
-    rows = 50
-    columns = 50
+    rows = 45
+    columns = 45
     grid = [[0 for _ in range(columns)] for _ in range(rows)] #Create empty grid with 0 for all list values
     for counter in range(rows): #Repeats for all rows and values in list
         for counter1 in range(columns):
@@ -79,8 +79,11 @@ def displayGrid(grid,columns,rows):
 
 #Call modules
 grid,columns,rows = createGrid() #Creates the origianl random grid
+ticks = 0
 while True:
     displayGrid(grid,columns,rows) #Displays the grid before changing it
+    print("Ticks:",ticks)
+    ticks += 1
     grid = generation(grid)
-    time.sleep(0.3) #Refresh every 0.3 seconds
+    time.sleep(0.4) #Refresh every 0.3 seconds
     os.system("cls") #What should replace this if deprecated?
