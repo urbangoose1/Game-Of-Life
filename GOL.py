@@ -25,10 +25,8 @@ def createGrid():
     return grid,rows,columns
             
 
-def countCells(TL,T,TR,L,M,R,BL,B,BR): #TL stands for 'Top Left' and BR stands for 'Bottom Right' and so on
-    neighbors = [TL,T,TR,L,R,BL,B,BR] #Group the values
-    neighbors = [n for n in neighbors if n is not None] #Remove nil values
-    total = sum(neighbors) #Add the live neighbours up
+def countCells(*neighbors): #TL stands for 'Top Left' and BR stands for 'Bottom Right' and so on
+    total = sum([n for n in neighbors if n is not None])
 
     if M == 1:
         return 1 if total in (2, 3) else 0 #Enforces the rules for live cells
@@ -87,3 +85,4 @@ while True:
     grid = generation(grid)
     time.sleep(0.4) #Refresh every 0.3 seconds
     os.system("cls") #What should replace this if deprecated?
+
