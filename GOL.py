@@ -70,11 +70,14 @@ def displayGrid(grid,columns,rows):
                 displayGrid[y][x] = "█" #Changes the 1 values to blocks to better represent it
             elif grid[y][x] == 0:
                 displayGrid[y][x] = " " #Changes the 0 values to spaces to better represent it
-    
+
+    print('\033[H', end='')
     for counter in range(len(displayGrid)):
         print("".join(str(v) for v in displayGrid[counter])) #join the cells with empty characters
 
 
+
+os.system('cls')
 
 
 #Call modules
@@ -86,4 +89,5 @@ while True:
     ticks += 1
     grid = generation(grid)
     time.sleep(0.4) #Refresh every 0.3 seconds
-    os.system("cls") #What should replace this if deprecated?
+
+os.system('cls')
